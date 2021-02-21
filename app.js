@@ -31,7 +31,6 @@ movieDatabase.getMovies = () => {
       return response.json();
     })
     .then((jsonResponse) => {
-      console.log(jsonResponse);
       movieDatabase.displayMovies(jsonResponse);
     });
 };
@@ -50,7 +49,7 @@ movieDatabase.displayMovies = (dataFromApi) => {
   //movie title = jsonResponse.results[index].title
   //movie release date = jsonResponse.results[index].release_date
   dataFromApi.results.forEach((movie) => {
-    //create list elements
+
     const gallery = document.createElement("li");
     const poster = document.createElement("img");
     const movieDetails = document.createElement("div");
@@ -58,6 +57,7 @@ movieDatabase.displayMovies = (dataFromApi) => {
 
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
+
     movieDetails.classList.add("movieDetails");
     movieDetails.appendChild(span);
     gallery.appendChild(poster);
@@ -75,7 +75,6 @@ movieDatabase.changeGenre = function () {
   });
 };
 
-//STEP FOUR: Display the movies associated to the genres picked by the user and below the movie poster, display the movie title and the year of release
 
 movieDatabase.init = () => {
   movieDatabase.form = document.querySelector("form");
