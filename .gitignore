@@ -1,0 +1,127 @@
+//The source of data is TMDb: https://www.themoviedb.org/documentation/api
+//https://api.themoviedb.org/3/movie/550?api_key=8afdd130b22be86a60cb4c3e8b56a739
+//API Key: 8afdd130b22be86a60cb4c3e8b56a739
+
+// Landing page would welcome user
+// Ask them to filter by the general features with a drop down menu
+// Latest movies:  https://api.themoviedb.org/3/movie/latest?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
+
+// Now playing movies:  https://api.themoviedb.org/3/movie/now_playing?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&page=1
+
+// Popular movies: https://api.themoviedb.org/3/movie/popular?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&page=1
+
+// Top rated movies: https://api.themoviedb.org/3/movie/top_rated?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&page=1
+
+// Upcoming movies:  https://api.themoviedb.org/3/movie/upcoming?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&page=1
+
+// User selects option from dropdown menu,
+// Ask them to click a button to submit their request
+//event listener submits on click of genre option
+// event listener uses fetch to call API
+// once API data is received, then will filter based on user’s input
+// will limit return data to certain number of results
+// ul will then display results in form of titles, movie poster and release date
+
+// https://image.tmdb.org/t/p/original/[poster_path]
+// https://image.tmdb.org/t/p/original/6tdfPVC6kqCVFHqmAGibgYcgw3S.jpg - getting the corresponding poster
+ https://api.themoviedb.org/3/genre/movie/28?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
+https://api.themoviedb.org/3/genre/movie/list?api_key=[MY_KEY]&language=en-US
+
+
+{
+
+    "genres": [
+        {
+            "id": 28,
+            "name": "Action"
+        },
+        {
+            "id": 12,
+            "name": "Adventure"
+        },
+        {
+            "id": 16,
+            "name": "Animation"
+        },
+        {
+            "id": 35,
+            "name": "Comedy"
+        },
+        {
+            "id": 80,
+            "name": "Crime"
+        },
+        {
+            "id": 99,
+            "name": "Documentary"
+        },
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 10751,
+            "name": "Family"
+        },
+        {
+            "id": 14,
+            "name": "Fantasy"
+        },
+        {
+            "id": 36,
+            "name": "History"
+        },
+        {
+            "id": 27,
+            "name": "Horror"
+        },
+        {
+            "id": 10402,
+            "name": "Music"
+        },
+        {
+            "id": 9648,
+            "name": "Mystery"
+        },
+        {
+            "id": 10749,
+            "name": "Romance"
+        },
+        {
+            "id": 878,
+            "name": "Science Fiction"
+        },
+        {
+            "id": 10770,
+            "name": "TV Movie"
+        },
+        {
+            "id": 53,
+            "name": "Thriller"
+        },
+        {
+            "id": 10752,
+            "name": "War"
+        },
+        {
+            "id": 37,
+            "name": "Western"
+        }
+    ]
+
+}
+
+//Gets the list of genres
+https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
+
+//Gets the associated movies to the selected genres
+https://api.themoviedb.org/3/discover/movie?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&with_genres=37
+
+// https://image.tmdb.org/t/p/original/[poster_path]
+// https://image.tmdb.org/t/p/original/yQqMvQJ9DZV7J4WkDda5Y8yzsPw.jpg - getting the corresponding poster
+
+use the fetch api method to get the list of genres
+get the value of the option the user picked from the genres list
+append the value to the genres api
+display the movies associated to the genres picked by the user
+  below the movie poster, display the movie title and the year of release
