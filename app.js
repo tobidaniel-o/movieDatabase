@@ -14,7 +14,6 @@ movieDatabase.apiUrl = `https://api.themoviedb.org/3/discover/movie`;
 movieDatabase.apiKey = `8afdd130b22be86a60cb4c3e8b56a739`;
 movieDatabase.posterUrl = `https://image.tmdb.org/t/p/original`;
 
-
 //Use the fetch API method to get the list of genres
 //relevant API information
 //create a method which requests information from the API
@@ -44,9 +43,8 @@ movieDatabase.genreId = () => {
 };
 
 movieDatabase.displayMovies = (dataFromApi) => {
-  console.log(dataFromApi["results"][0].poster_path);
   //query the document and find the first ul
-   movieDatabase.ul = document.querySelector("ul");
+  movieDatabase.ul = document.querySelector("ul");
 
   //movie poster = jsonResponse.results[index].poster_path
   //movie title = jsonResponse.results[index].title
@@ -55,14 +53,16 @@ movieDatabase.displayMovies = (dataFromApi) => {
     //create list elements
     const gallery = document.createElement("li");
     const poster = document.createElement("img");
-    const movieDetails = document.createElement("div.movieDetails");
+    const movieDetails = document.createElement("div");
     const span = document.createElement("span");
 
     //Gets the poster url path
-    poster.src = movieDatabase.posterUrl+movie.poster_path;
-    gallery.appendChild(poster)
+    poster.src = movieDatabase.posterUrl + movie.poster_path;
+    movieDetails.classList.add("movieDetails");
+    movieDetails.appendChild(span);
+    gallery.appendChild(poster);
+    gallery.appendChild(movieDetails);
     movieDatabase.ul.appendChild(gallery);
-    console.log(poster.src);
   });
 };
 
@@ -81,6 +81,8 @@ movieDatabase.init = () => {
   movieDatabase.form = document.querySelector("form");
   movieDatabase.ul = document.querySelector("ul");
   movieDatabase.changeGenre();
+  movieDatabase.form.reset();
+  movieDatabase.getMovies();
 };
 
 movieDatabase.init();
