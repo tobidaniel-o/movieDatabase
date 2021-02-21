@@ -386,13 +386,13 @@ li {
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 img {
   display: block;
   width: 100%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .movieDetails {

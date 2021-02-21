@@ -49,17 +49,20 @@ movieDatabase.displayMovies = (dataFromApi) => {
   //movie title = jsonResponse.results[index].title
   //movie release date = jsonResponse.results[index].release_date
   dataFromApi.results.forEach((movie) => {
-
     const gallery = document.createElement("li");
     const poster = document.createElement("img");
     const movieDetails = document.createElement("div");
-    const span = document.createElement("span");
+    const span1 = document.createElement("span");
+    const span2 = document.createElement("span");
 
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
 
     movieDetails.classList.add("movieDetails");
-    movieDetails.appendChild(span);
+    span1.innerText = "Movie Title";
+    span2.innerText = "Year of release: ";
+    movieDetails.append(span1, span2)
+
     gallery.appendChild(poster);
     gallery.appendChild(movieDetails);
     movieDatabase.ul.appendChild(gallery);
@@ -74,7 +77,6 @@ movieDatabase.changeGenre = function () {
     movieDatabase.getMovies();
   });
 };
-
 
 movieDatabase.init = () => {
   movieDatabase.form = document.querySelector("form");
