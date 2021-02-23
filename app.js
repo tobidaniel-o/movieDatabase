@@ -1,3 +1,4 @@
+
 //Gets the list of genres and their IDs
 //https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
 
@@ -32,6 +33,7 @@ movieDatabase.getMovies = () => {
     })
     .then((jsonResponse) => {
       movieDatabase.displayMovies(jsonResponse);
+      console.log(jsonResponse)
     });
 };
 
@@ -42,26 +44,22 @@ movieDatabase.genreId = () => {
 };
 
 movieDatabase.displayMovies = (dataFromApi) => {
-  //query the document and find the first ul
-  movieDatabase.ul = document.querySelector("ul");
-
-  //movie poster = jsonResponse.results[index].poster_path
-  //movie title = jsonResponse.results[index].title
-  //movie release date = jsonResponse.results[index].release_date
   dataFromApi.results.forEach((movie) => {
     const gallery = document.createElement("li");
     const poster = document.createElement("img");
     const movieDetails = document.createElement("div");
-    const span1 = document.createElement("span");
-    const span2 = document.createElement("span");
+    const movieTitle = document.createElement("span");
+    const movieReleaseDate = document.createElement("span");
 
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
+    movieTitle.classList.add("title");
+    movieReleaseDate.classList.add("releaseDate")
 
     movieDetails.classList.add("movieDetails");
-    span1.innerText = "Movie Title";
-    span2.innerText = "Year of release: ";
-    movieDetails.append(span1, span2)
+    movieTitle.innerText = movie.title;
+    movieReleaseDate.innerText = movie.release_date;
+    movieDetails.append(movieTitle, movieReleaseDate);
 
     gallery.appendChild(poster);
     gallery.appendChild(movieDetails);
@@ -77,6 +75,7 @@ movieDatabase.changeGenre = function () {
     movieDatabase.getMovies();
   });
 };
+
 
 movieDatabase.init = () => {
   movieDatabase.form = document.querySelector("form");
