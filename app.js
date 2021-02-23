@@ -54,22 +54,17 @@ movieDatabase.displayMovies = (dataFromApi) => {
     movieTitle.classList.add("title");
     movieReleaseDate.classList.add("releaseDate");
     card.classList.add("card");
-    
+
     movieDetails.classList.add("movieDetails");
     movieTitle.innerText = movie.title;
-    movieReleaseDate.innerText = movie.release_date;
+    movieReleaseDate.innerText = `Release date: ${movie.release_date}`;
     movieDetails.append(movieTitle, movieReleaseDate);
-    
+
     card.appendChild(poster);
     card.appendChild(movieDetails);
     movieDatabase.ul.appendChild(card);
   });
-  const footer = document.createElement("footer");
-  footer.innerText = `Copyright © 2021 Tobi Okunuga. 
-  Developed @ Juno College.
-  This product uses the TMDb API but is not endorsed or certified by TMDb.
-                      `;
-  document.body.appendChild(footer)
+  document.querySelector("footer").style.display = "block";
 };
 
 movieDatabase.changeGenre = function () {

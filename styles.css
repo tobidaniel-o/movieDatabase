@@ -389,6 +389,11 @@ ul {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   font-family: "Source Sans Pro", sans-serif;
   border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.04);
 }
 
 img {
@@ -414,15 +419,33 @@ img {
 
 .releaseDate {
   color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
 }
-
 
 footer {
   padding: 2rem 0 1.5rem;
   background-color: #0d253f;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: white;
   text-align: center;
   line-height: 1.8rem;
+  display: none;
   /* letter-spacing: 0.1rem; */
+}
+
+/* media queries */
+@media (max-width: 450px){
+  ul {
+    grid-template-columns: 100%;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 650px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
