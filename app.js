@@ -1,4 +1,3 @@
-
 //Gets the list of genres and their IDs
 //https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
 
@@ -33,7 +32,7 @@ movieDatabase.getMovies = () => {
     })
     .then((jsonResponse) => {
       movieDatabase.displayMovies(jsonResponse);
-      console.log(jsonResponse)
+      console.log(jsonResponse);
     });
 };
 
@@ -45,26 +44,32 @@ movieDatabase.genreId = () => {
 
 movieDatabase.displayMovies = (dataFromApi) => {
   dataFromApi.results.forEach((movie) => {
-    const gallery = document.createElement("li");
+    const card = document.createElement("li");
     const poster = document.createElement("img");
     const movieDetails = document.createElement("div");
     const movieTitle = document.createElement("span");
     const movieReleaseDate = document.createElement("span");
-
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
     movieTitle.classList.add("title");
-    movieReleaseDate.classList.add("releaseDate")
-
+    movieReleaseDate.classList.add("releaseDate");
+    card.classList.add("card");
+    
     movieDetails.classList.add("movieDetails");
     movieTitle.innerText = movie.title;
     movieReleaseDate.innerText = movie.release_date;
     movieDetails.append(movieTitle, movieReleaseDate);
-
-    gallery.appendChild(poster);
-    gallery.appendChild(movieDetails);
-    movieDatabase.ul.appendChild(gallery);
+    
+    card.appendChild(poster);
+    card.appendChild(movieDetails);
+    movieDatabase.ul.appendChild(card);
   });
+  const footer = document.createElement("footer");
+  footer.innerText = `Copyright © 2021 Tobi Okunuga. 
+  Developed @ Juno College.
+  This product uses the TMDb API but is not endorsed or certified by TMDb.
+                      `;
+  document.body.appendChild(footer)
 };
 
 movieDatabase.changeGenre = function () {
@@ -75,7 +80,6 @@ movieDatabase.changeGenre = function () {
     movieDatabase.getMovies();
   });
 };
-
 
 movieDatabase.init = () => {
   movieDatabase.form = document.querySelector("form");
