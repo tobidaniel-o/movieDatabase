@@ -54,10 +54,13 @@ movieDatabase.displayMovies = (dataFromApi) => {
     const movieDetails = document.createElement("div");
     const movieTitle = document.createElement("span");
     const movieReleaseDate = document.createElement("span");
-    const movieTrailer = document.createElement("a")
+    const movieTrailer = document.createElement("a");
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
+    poster.alt = movie.overview;
     movieTrailer.href = movieDatabase.trailer + movie.id;
+    // movieTrailer.target = "_blank";
+    movieTrailer.alt = movie.overview;
     movieTitle.classList.add("title");
     movieReleaseDate.classList.add("releaseDate");
     card.classList.add("card");
@@ -68,7 +71,7 @@ movieDatabase.displayMovies = (dataFromApi) => {
     movieDetails.append(movieTitle, movieReleaseDate);
 
     movieTrailer.appendChild(poster);
-        card.appendChild(movieTrailer);
+    card.appendChild(movieTrailer);
 
     // card.appendChild(poster);
     card.appendChild(movieDetails);
