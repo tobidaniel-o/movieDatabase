@@ -4,6 +4,10 @@
 //Gets the associated movies to the selected genres
 //https://api.themoviedb.org/3/discover/movie?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&with_genres=37
 
+//Gets the associated movie trailer
+//Source of the info: https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c
+//https://www.themoviedb.org/movie/576379-hell-on-the-border - Get the movie id and append after the movie parameter
+
 // https://image.tmdb.org/t/p/original/[poster_path]
 // https://image.tmdb.org/t/p/original/yQqMvQJ9DZV7J4WkDda5Y8yzsPw.jpg - getting the corresponding poster
 
@@ -13,6 +17,7 @@ const movieDatabase = {};
 movieDatabase.apiUrl = `https://api.themoviedb.org/3/discover/movie`;
 movieDatabase.apiKey = `8afdd130b22be86a60cb4c3e8b56a739`;
 movieDatabase.posterUrl = `https://image.tmdb.org/t/p/original`;
+movieDatabase.trailer = `https://www.themoviedb.org/movie/`;
 
 //Use the fetch API method to get the list of genres
 //relevant API information
@@ -49,8 +54,10 @@ movieDatabase.displayMovies = (dataFromApi) => {
     const movieDetails = document.createElement("div");
     const movieTitle = document.createElement("span");
     const movieReleaseDate = document.createElement("span");
+    const movieTrailer = document.createElement("a")
     //Gets the poster url path
     poster.src = movieDatabase.posterUrl + movie.poster_path;
+    movieTrailer.href = movieDatabase.trailer + movie.id;
     movieTitle.classList.add("title");
     movieReleaseDate.classList.add("releaseDate");
     card.classList.add("card");
@@ -60,7 +67,10 @@ movieDatabase.displayMovies = (dataFromApi) => {
     movieReleaseDate.innerText = `Release date: ${movie.release_date}`;
     movieDetails.append(movieTitle, movieReleaseDate);
 
-    card.appendChild(poster);
+    movieTrailer.appendChild(poster);
+        card.appendChild(movieTrailer);
+
+    // card.appendChild(poster);
     card.appendChild(movieDetails);
     movieDatabase.ul.appendChild(card);
   });

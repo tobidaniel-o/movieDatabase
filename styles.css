@@ -422,6 +422,10 @@ img {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
+
 footer {
   padding: 2rem 0 1.5rem;
   background-color: #0d253f;
@@ -434,7 +438,7 @@ footer {
 }
 
 /* media queries */
-@media (max-width: 450px){
+@media (max-width: 400px){
   ul {
     grid-template-columns: 100%;
   }
