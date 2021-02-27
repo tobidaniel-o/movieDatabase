@@ -19,6 +19,39 @@ movieDatabase.apiKey = `8afdd130b22be86a60cb4c3e8b56a739`;
 movieDatabase.posterUrl = `https://image.tmdb.org/t/p/original`;
 movieDatabase.trailer = `https://www.themoviedb.org/movie/`;
 
+//Fetch the Genre IDs
+// movieDatabase.genId = () => {
+//   fetch(
+//     `https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US`
+//   )
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((dataResponse) => {
+//       // console.log(dataResponse);
+//       movieDatabase.getGenreById(dataResponse);
+//     });
+// };
+
+
+// movieDatabase.getGenreById = (data) => {
+//   movieDatabase.genIDs = [];
+  
+//   data.genres.forEach((genre) => {
+//     movieDatabase.genIDs.push(genre.name);
+//   });
+//   console.log(movieDatabase.genIDs);
+//   // let genreId = document.querySelector("select").innerText;
+//   // if (movieDatabase.genIDs.includes(genreId)) {
+//   //   console.log(genreId);
+//   // }
+// };
+// movieDatabase.genId();
+
+
+
+
+
 //Use the fetch API method to get the list of genres
 //relevant API information
 //create a method which requests information from the API
@@ -37,7 +70,7 @@ movieDatabase.getMovies = () => {
     })
     .then((jsonResponse) => {
       movieDatabase.displayMovies(jsonResponse);
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
     });
 };
 

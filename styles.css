@@ -434,51 +434,10 @@ footer {
   text-align: center;
   line-height: 1.8rem;
   display: none;
-  /* letter-spacing: 0.1rem; */
 }
 
 /* media queries */
 /* MEDIA QUERIES GUIDE */
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 400px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  p {
-    padding: 1rem 0 2rem;
-    font-size: 1.2rem;
-  }
-
-  form {
-    display: flex;
-  }
-
-  select {
-    font-size: 1.2rem;
-    padding: 8px 9px;
-    width: 274px;
-  }
-
-  input[type="submit"] {
-    font-size: 18px;
-    padding: 6px 9px;
-  }
-
-  ul {
-    grid-template-columns: none;
-  }
-
-  .card:hover {
-    transform: none;
-  }
-
-  footer {
-    padding: 0.7rem;
-    line-height: 1.2rem;
-    font-size: 0.8rem;
-  }
-} */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
@@ -540,11 +499,4 @@ footer {
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {} */
 
-/* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) {} */
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {}  */
