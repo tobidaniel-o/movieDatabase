@@ -1,16 +1,3 @@
-//Gets the list of genres and their IDs
-//https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US
-
-//Gets the associated movies to the selected genres
-//https://api.themoviedb.org/3/discover/movie?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US&with_genres=37
-
-//Gets the associated movie trailer
-//Source of the info: https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c
-//https://www.themoviedb.org/movie/576379-hell-on-the-border - Get the movie id and append after the movie parameter
-
-// https://image.tmdb.org/t/p/original/[poster_path]
-// https://image.tmdb.org/t/p/original/yQqMvQJ9DZV7J4WkDda5Y8yzsPw.jpg - getting the corresponding poster
-
 //Declare a namespace for the app
 const movieDatabase = {};
 
@@ -18,39 +5,6 @@ movieDatabase.apiUrl = `https://api.themoviedb.org/3/discover/movie`;
 movieDatabase.apiKey = `8afdd130b22be86a60cb4c3e8b56a739`;
 movieDatabase.posterUrl = `https://image.tmdb.org/t/p/original`;
 movieDatabase.trailer = `https://www.themoviedb.org/movie/`;
-
-//Fetch the Genre IDs
-// movieDatabase.genId = () => {
-//   fetch(
-//     `https://api.themoviedb.org/3/genre/movie/list?api_key=8afdd130b22be86a60cb4c3e8b56a739&language=en-US`
-//   )
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((dataResponse) => {
-//       // console.log(dataResponse);
-//       movieDatabase.getGenreById(dataResponse);
-//     });
-// };
-
-
-// movieDatabase.getGenreById = (data) => {
-//   movieDatabase.genIDs = [];
-  
-//   data.genres.forEach((genre) => {
-//     movieDatabase.genIDs.push(genre.name);
-//   });
-//   console.log(movieDatabase.genIDs);
-//   // let genreId = document.querySelector("select").innerText;
-//   // if (movieDatabase.genIDs.includes(genreId)) {
-//   //   console.log(genreId);
-//   // }
-// };
-// movieDatabase.genId();
-
-
-
-
 
 //Use the fetch API method to get the list of genres
 //relevant API information
