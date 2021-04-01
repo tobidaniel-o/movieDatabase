@@ -446,7 +446,8 @@ footer {
   }
 
   ul {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
   }
 
   .card:hover {
@@ -456,6 +457,13 @@ footer {
   footer {
     padding: 1.5rem;
     line-height: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 592px){
+  form {
+    width: 100%;
+    display: flex;
   }
 }
 
@@ -471,6 +479,7 @@ footer {
 
   form {
     display: flex;
+    width: 100%;
   }
 
   select {
@@ -498,5 +507,3 @@ footer {
     font-size: 0.8rem;
   }
 }
-
-
